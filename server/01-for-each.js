@@ -1,4 +1,4 @@
-
+// forEach(): itera un Array sin devoñver nada
 
 const letters = ['a', 'b', 'c', 'd'];
 

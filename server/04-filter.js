@@ -1,3 +1,5 @@
+// filter(): devuelve un nuevo Array con los elementos que cumplan la condicion, si ningun elemento cumple dicha condidion, este regresa un Array vacio.
+
 const words = [ 'spray', 'limit', 'elite', 'exuberant' ];
 
 

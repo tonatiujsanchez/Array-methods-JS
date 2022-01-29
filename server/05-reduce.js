@@ -44,3 +44,97 @@ const numbersCount = numbers.reduce(( obj, number )=>{
 }, {});
 
 console.log( numbersCount );
+
+
+// Ejercicio 2
+const data = [
+    {
+      name: 'Nicolas',
+      level: 'low'
+    },
+    {
+      name: 'Aadrea',
+      level: 'medium'
+    },
+    {
+      name: 'Zulema',
+      level: 'hight'
+    },
+    {
+      name: 'Santiago',
+      level: 'low'
+    }
+];
+
+// Opcion 1
+const result = data.reduce( ( obj, item) =>{
+    
+     if( !(obj[item.level]) ){
+        obj[item.level] = 1;
+    }else{
+        obj[item.level] = obj[item.level] + 1;
+    }
+
+    return obj
+},{})
+
+// console.log( result );
+
+// Opcion 2
+
+const levels = data
+                .map( item => item.level )
+                .reduce( (obj, level ) => {
+
+                    (!obj[level]) ? obj[level] = 1 : obj[level] = obj[level] + 1
+
+                    return obj
+                }, {})
+
+console.log( levels )
+
+
+
+// Funcion para generar numeros aleatorios
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
+// Array de rangos
+const rangos = [ [1, 5], [6, 8], [9,10] ];
+
+// Array de numeros generados de forma aleatoria
+const numeros = [];
+
+for (let i = 0; i < 30; i++) {
+    numeros.push( getRandomInt(1, 10) );
+}
+
+// Utilizamos el map() para obtener todos los rangos disponibles
+const rangosObj = rangos.map( rango => rango )
+                    .reduce( ( obj, rango)=>{   //recoremos los rangos un reduce()
+
+                        // Recorremos el array de numeros
+                        numeros.forEach( numero =>{
+                            // Verificamos si pertenece al rango actual
+                            if( numero >= rango[0] && numero <= rango[1]  ){
+                                // Si pertenece a este rango, verificamos que el rango ya este incluido en el objeto
+                                if( obj[ rango ] ){
+                                     obj[ rango ] = obj[ rango ] + 1;
+                                }else{
+                                    // Si no este incluido lo creamos
+                                 obj[ rango ] = 1;
+                                }
+                            }
+                        });
+
+                        return obj
+                    },{});
+
+// Imprimimos los numeros y el objeto 
+console.log('==== NUMEROS ====');
+console.log( numeros );
+
+console.log('==== RESULTADOS ====');
+console.log( rangosObj );
+

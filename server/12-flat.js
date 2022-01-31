@@ -1,4 +1,4 @@
-
+// falt(): aplana arrays
 
 // Forma tradidiconal
 const matriz = [

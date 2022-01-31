@@ -1,3 +1,5 @@
+// flatMap(): aplana array e itera como un map()
+
 const users = [
     { userId: 1, username: "Tom", attributes: ["Nice", "Cute"] },
     { userId: 2, username: "Mike", attributes: ["Lovely"] },
